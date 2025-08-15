@@ -1,0 +1,6 @@
+VECTOR_DB_NAME: "faiss_index"
+CREATE_NEW_INDEX: True
+PDF_FILES: "./pdf_files/"
+LLM_MODEL: "gemini-1.5-flash"
+EMBEDDING_MODEL: "models/embedding-001"
+MODE: 'qa' # summary, qa, general
