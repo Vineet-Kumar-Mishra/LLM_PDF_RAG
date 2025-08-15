@@ -12,12 +12,20 @@ load_dotenv()
 with open("config.yaml") as f:
     config = yaml.safe_load(f)
 
+# vector DB----------------------------------------
 DB_LOCAL = config["VECTOR_DB_NAME"]
 CREATE_NEW_INDEX = config["CREATE_NEW_INDEX"]
-PDF_FILES = config["PDF_FILES"]
+
+# Models-------------------------------------------
 LLM_MODEL = config["LLM_MODEL"]
 EMBEDDING_MODEL = config["EMBEDDING_MODEL"]
+
+# Mode selection-----------------------------------
 MODE = config["MODE"]
+MODE_SELECTOR = config["MODE_SELECTOR"]
+
+# PDF files-----------------------------------------
+PDF_FILES = config["PDF_FILES"]
 all_pdf_files = glob.glob(PDF_FILES+"/*pdf")
 
 if __name__=="__main__":
@@ -36,12 +44,15 @@ if __name__=="__main__":
         query = input("\nYou: ").strip()
         if query.lower() in ["exit", "quit"]:
             break
+        
+        if MODE_SELECTOR=='LLM':
+            mode = detect_mode(query, llm)
+        else:
+            mode = MODE
 
-        # mode = detect_mode(query, llm)
-
-        if MODE == "summary":
+        if mode == "summary":
             answer = summarise_document(text_docs, llm)
-        elif MODE == "qa":
+        elif mode == "qa":
             answer = qa_mode(query, vector_db, chain, memory)
         else:
             answer = free_chat(query, llm, memory)
