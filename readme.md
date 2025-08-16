@@ -17,3 +17,15 @@ It uses **Google Generative AI (Gemini)** for language understanding and embeddi
 ├── main.py                # Main entry point for the app
 ├── requirements.txt       # Python dependencies
 └── README.md              # This file
+
+
+## 🚀 Running the App
+
+### 1. Streamlit Interface
+
+Run the Streamlit app:
+
+```bash
+streamlit run app.py
+
+![App Screenshot](images/app.png)
