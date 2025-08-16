@@ -8,6 +8,23 @@ This project is a **LangChain-powered Conversational AI** that can:
 It uses **Google Generative AI (Gemini)** for language understanding and embeddings, with **FAISS** as a local vector database.
 
 **Modes** - select mode in config file or let the LLM choose
+
+## Running CMD
+```bash
+python main.py
+```
+
+## 🚀 Running the App
+
+### 1. Streamlit Interface
+
+Run the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+![screenshot](images/app.png)
+
 ## 📂 Folder Structure
 
 ```plaintext
@@ -19,13 +36,3 @@ It uses **Google Generative AI (Gemini)** for language understanding and embeddi
 └── README.md              # This file
 
 
-## 🚀 Running the App
-
-### 1. Streamlit Interface
-
-Run the Streamlit app:
-
-```bash
-streamlit run app.py
-
-![App Screenshot](images/app.png)
